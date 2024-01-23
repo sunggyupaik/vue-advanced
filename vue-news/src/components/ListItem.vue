@@ -1,9 +1,9 @@
 <template>
     <div>
       <ul class="news-list">
-        <li v-for="item in this.$store.state.news" :key="item.id" class="post">
+        <li v-for="item in listItems" :key="item.id" class="post">
           <div class="points">
-            {{ item.points }}
+            {{ item.points || 0 }}
           </div>
           <div>
             <p class="news-title">
@@ -26,12 +26,24 @@
         console.log(this.$route.path === '/news');
         const name = this.$route.name;
         if (name === 'news') {
-            this.$store.dispatch('FETCH_NEWS');
+          this.$store.dispatch('FETCH_NEWS');
         } else if (name === 'ask') {
-            this.$store.dispatch('FETCH_ASK');
+          this.$store.dispatch('FETCH_ASK');
         } else if (name === 'jobs') {
-            this.$store.dispatch('FETCH_JOBS');
+          this.$store.dispatch('FETCH_JOBS');
         }
+    },
+    computed: {
+      listItems () {
+        const name = this.$route.name;
+        if (name === 'news') {
+            return this.$store.state.news;
+        } else if (name === 'ask') {
+          return this.$store.state.ask;
+        } else if (name === 'jobs') {
+          return this.$store.state.jobs;
+        }
+      }
     }
   }
   </script>
