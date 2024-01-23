@@ -28,12 +28,6 @@
       <div v-html="fetchedItem.content"></div>
     </section>
   </div>
-  <!-- <div>
-    <p>{{ this.$store.state.item.title }}</p>
-    <div>
-      {{ this.$store.state.item.content }}
-    </div>
-  </div> -->
 </template>
 
 <script>
