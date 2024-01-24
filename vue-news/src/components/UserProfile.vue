@@ -4,14 +4,17 @@
         <i class="fas fa-user-circle"></i>
       </div>
       <div class="user-description">
-          <div>{{ userInfo.id }}</div>
-          <div class="time">{{ userInfo.created }}</div>
+          <div>{{ info.id }}</div>
+          <div class="time">{{ info.created }}</div>
       </div>
     </div>
   </template>
   
   <script>
   export default {
+    props: {
+      info: Object
+    },
     computed: {
         userInfo() {
           return this.$store.state.user;
