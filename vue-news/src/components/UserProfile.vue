@@ -4,8 +4,18 @@
         <i class="fas fa-user-circle"></i>
       </div>
       <div class="user-description">
-          <div>{{ info.id }}</div>
-          <div class="time">{{ info.created }}</div>
+          <!-- <div>{{ info.id }}</div>
+          <div class="time">{{ info.created }}</div> -->
+          <slot name="username">
+
+          </slot>
+
+          <div class="time">
+            <slot name="time">
+
+            </slot>
+          </div>
+          <slot name="karma"></slot>
       </div>
     </div>
   </template>
