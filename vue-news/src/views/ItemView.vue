@@ -2,22 +2,10 @@
   <div>
     <section>
       <user-profile :info="fetchedItem">
-        <div slot="username">{{ fetchedItem.user }}</div>
-        <template slot="time">{{ fetchedItem.time_ago }}</template>
+        <!-- <div slot="username">{{ fetchedItem.user }}</div> -->
+        <router-link slot="username" :to="`/user/${fetchedItem.user}`">{{ fetchedItem.user }}</router-link>
+        <template slot="time">{{ 'Posted ' + fetchedItem.time_ago }}</template>
       </user-profile>
-      <!-- <div class="user-container">
-        <div>
-          <i class="fas fa-user"></i>
-        </div>
-        <div class="user-description">
-          <router-link :to="`/user/${fetchedItem.user}`">
-            {{ fetchedItem.user }}
-          </router-link>
-          <div class="time">
-            {{ fetchedItem.time_ago }}
-          </div>
-        </div>
-      </div> -->
     </section>
     <section>
       <h2>
